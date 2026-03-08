@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#ffb84d">
+  <title>奶茶封口王</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-bg" aria-hidden="true"></div>
+  <main class="game-shell" id="gameShell">
+    <header class="top-bar">
+      <div class="score-block">
+        <p class="label">当前分</p>
+        <p class="value" id="score">0</p>
+      </div>
+      <div class="score-block">
+        <p class="label">连击</p>
+        <p class="value" id="combo">0</p>
+      </div>
+      <div class="score-block">
+        <p class="label">最佳</p>
+        <p class="value" id="best">0</p>
+      </div>
+      <div class="score-block timer">
+        <p class="label">倒计时</p>
+        <p class="value" id="timer">30.0</p>
+      </div>
+    </header>
+
+    <section class="belt-wrap">
+      <div class="belt-header">
+        <h1>奶茶封口王</h1>
+        <p id="managerTaunt">老板：爆单了！盯紧杯型，别封错！</p>
+      </div>
+
+      <div class="belt" id="belt">
+        <div class="seal-zone" id="sealZone">
+          <span>封口区</span>
+        </div>
+        <div id="cupsLayer" class="cups-layer" aria-live="polite"></div>
+        <div id="fxLayer" class="fx-layer" aria-hidden="true"></div>
+      </div>
+
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="controls" aria-label="封口盖选择">
+      <button class="lid-btn ice" data-lid="ice" type="button">
+        <span class="btn-title">冰饮盖</span>
+        <span class="btn-dot"></span>
+      </button>
+      <button class="lid-btn milkfoam" data-lid="milkfoam" type="button">
+        <span class="btn-title">奶盖盖</span>
+        <span class="btn-dot"></span>
+      </button>
+      <button class="lid-btn hot" data-lid="hot" type="button">
+        <span class="btn-title">热饮盖</span>
+        <span class="btn-dot"></span>
+      </button>
+    </section>
+
+    <section class="overlay" id="startOverlay">
+      <div class="panel">
+        <p class="tag">30 秒快手挑战</p>
+        <h2>看准杯型 + 卡准时机</h2>
+        <p>杯子进封口区时，点对应颜色盖子。封对加分叠连击，封错或漏封就翻车。</p>
+        <button id="startBtn" class="main-btn" type="button">开工封口</button>
+      </div>
+    </section>
+
+    <section class="overlay hidden" id="resultOverlay">
+      <div class="panel">
+        <p class="tag" id="resultTitle">出杯新手</p>
+        <h2>本局 <span id="finalScore">0</span> 分</h2>
+        <p id="resultDetail">最高连击 0，继续冲榜！</p>
+        <div class="share-box">
+          <textarea id="shareText" readonly></textarea>
+          <button id="copyBtn" class="sub-btn" type="button">复制吹牛文案</button>
+        </div>
+        <button id="restartBtn" class="main-btn" type="button">再来一局</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
